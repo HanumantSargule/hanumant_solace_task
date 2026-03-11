@@ -1,0 +1,21 @@
+Options -Indexes
+ServerSignature Off
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://ajax.googleapis.com https://maxcdn.bootstrapcdn.com; style-src 'self' https://maxcdn.bootstrapcdn.com; img-src 'self' data:; font-src 'self' https://maxcdn.bootstrapcdn.com; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block hidden files and version control artifacts.
+    RewriteRule "(^|/)\." - [F,L]
+    RewriteRule "^\.git" - [F,L]
+
+    # Block direct access to sensitive file types.
+    RewriteRule "\.(env|ini|log|bak|sql|sh)$" - [F,L,NC]
+</IfModule>

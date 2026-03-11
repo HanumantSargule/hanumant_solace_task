@@ -524,6 +524,8 @@ Frame = function(userOptions){
 				aspectRatio = file.width / file.height,
 				frameHeight = Math.floor(thickness / aspectRatio);
 			frameHeight = (frameHeight <= 1) ? 2 : frameHeight;
+			// Use a narrow strip from the asset so each border side is a repeated pattern piece.
+			var sourceStripWidth = Math.min(file.width, Math.max(8, Math.floor(file.width * 0.12)));
 
 			ctx.save();
 			ctx.beginPath();
@@ -535,7 +537,7 @@ Frame = function(userOptions){
 			ctx.clip();
 			// repeat the frame down the left-hand side
 			for(count = 0; length < frame.height; count++){
-				ctx.drawImage(file, x1, Math.floor(y1 + ((frameHeight-1)*count)), thickness, frameHeight);
+				ctx.drawImage(file, 0, 0, sourceStripWidth, file.height, x1, Math.floor(y1 + ((frameHeight-1)*count)), thickness, frameHeight);
 				length += frameHeight-1;
 			}
 
@@ -544,7 +546,7 @@ Frame = function(userOptions){
 			ctx.rotate(degrees);
 			length = 0;
 			for(count = 0; length < frame.height; count++){
-				ctx.drawImage(file, x1, Math.floor(y1 + ((frameHeight-1)*count)), thickness, frameHeight);
+				ctx.drawImage(file, 0, 0, sourceStripWidth, file.height, x1, Math.floor(y1 + ((frameHeight-1)*count)), thickness, frameHeight);
 				length += frameHeight-1;
 			}
 			ctx.rotate(-degrees);
@@ -569,14 +571,14 @@ Frame = function(userOptions){
 			// top
 			length = 0;
 			for(count = 0; length < frame.width; count++){
-				ctx.drawImage(file, y1, Math.floor(x1 + ((frameHeight-1)*count)), thickness, frameHeight);
+				ctx.drawImage(file, 0, 0, sourceStripWidth, file.height, y1, Math.floor(x1 + ((frameHeight-1)*count)), thickness, frameHeight);
 				length += frameHeight-1;
 			}
 			ctx.rotate(-degrees*2);
 			// bottom
 			length = 0;
 			for(count = 0; length < frame.width; count++){
-				ctx.drawImage(file, y1, Math.floor(x1 + ((frameHeight-1)*count)), thickness, frameHeight);
+				ctx.drawImage(file, 0, 0, sourceStripWidth, file.height, y1, Math.floor(x1 + ((frameHeight-1)*count)), thickness, frameHeight);
 				length += frameHeight-1;
 			}
 			ctx.rotate(degrees);

@@ -1,0 +1,5 @@
+# Generated upload outputs
+upload/*_thump.*
+
+# Keep upload directory in repository
+!upload/.gitkeep
