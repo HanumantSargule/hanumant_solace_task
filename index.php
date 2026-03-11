@@ -57,16 +57,10 @@
 							<p class="panel-subtitle">Tune dimensions, artwork, and border style.</p>
 						</div>
 
-						<ul class="nav nav-tabs layer-tabs" id="layerTabs" role="tablist">
-							<li role="presentation" class="active"><a href="#sizeLayer" aria-controls="sizeLayer" role="tab" data-toggle="tab">Canvas Size</a></li>
-							<li role="presentation"><a href="#photoLayer" aria-controls="photoLayer" role="tab" data-toggle="tab">Artwork Source</a></li>
-							<li role="presentation"><a href="#frameLayer" aria-controls="frameLayer" role="tab" data-toggle="tab">Border Pattern</a></li>
-						</ul>
-
 						<form action="action.php" method="post" enctype="multipart/form-data" id="uploadForm">
 							<input type="hidden" name="csrf_token" value="<?= htmlspecialchars((string) $_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
-							<div class="tab-content layer-content">
-								<div role="tabpanel" class="tab-pane active" id="sizeLayer">
+							<div class="layer-content">
+								<div class="control-section" id="sizeLayer">
 									<h4>Set Canvas Dimensions</h4>
 									<div class="row">
 										<div class="col-sm-4">
@@ -90,7 +84,7 @@
 									</div>
 								</div>
 
-								<div role="tabpanel" class="tab-pane" id="photoLayer">
+								<div class="control-section" id="photoLayer">
 									<h4>Choose Artwork</h4>
 									<h5>Gallery Samples</h5>
 									<div id="samplePhotos" class="tile-grid">
@@ -118,7 +112,7 @@
 									<button type="submit" name="submit" class="btn btn-success">Upload and Render</button>
 								</div>
 
-								<div role="tabpanel" class="tab-pane" id="frameLayer">
+								<div class="control-section" id="frameLayer">
 									<h4>Select Border Texture</h4>
 									<div class="tile-grid frame-grid">
 										<?php if (!empty($frameOptions)): ?>

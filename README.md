@@ -108,11 +108,14 @@ Implemented in rendering logic.
 
 ## Run Instructions (WAMP)
 
-1. Place project under:
-   - C:/wamp64/www/Solace-frame-assignment-demo
-2. Start Apache + PHP in WAMP.
-3. Open in browser:
-   - http://localhost/Solace-frame-assignment-demo/index.php
+1. Place project under `C:/wamp64/www/`.
+2. Ensure the folder name in `www` matches the URL path you open in browser.
+  - Example for this repository: `C:/wamp64/www/hanumant_demo`
+3. Start Apache + PHP in WAMP.
+4. Open in browser:
+  - `http://localhost/hanumant_demo/index.php`
+
+If you rename the folder, update only the URL segment after `localhost/`.
 
 ## Suggested Next Improvements
 

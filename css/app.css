@@ -84,29 +84,24 @@ canvas#testCanvas {
     background: transparent;
 }
 
-.layer-tabs {
-    margin-bottom: 12px;
-    border-bottom: 2px solid var(--border);
-}
-
-.layer-tabs > li > a {
-    color: var(--text);
-    border-radius: 8px 8px 0 0;
-    font-weight: 600;
-}
-
-.layer-tabs > li > a:hover,
-.layer-tabs > li.active > a,
-.layer-tabs > li.active > a:focus,
-.layer-tabs > li.active > a:hover {
-    color: var(--primary);
-    background: var(--primary-soft);
-    border-color: var(--border);
-    border-bottom-color: var(--primary-soft);
-}
-
 .layer-content {
     padding-top: 6px;
+}
+
+.control-section {
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fbfdff;
+    margin-bottom: 14px;
+}
+
+.control-section:last-child {
+    margin-bottom: 0;
+}
+
+.control-section h4 {
+    margin-top: 0;
 }
 
 .form-group-button .btn {
